@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aaron Abhilash | Ethical Hacker</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="top-nav">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="hero-content reveal">
+      <p class="hero-subtitle">Hello, I’m</p>
+      <h1>Aaron Abhilash</h1>
+      <p class="hero-title">Ethical Hacker</p>
+      <p class="hero-description">
+        Aaron Abhilash is a student at TocH Institution of Science and Technology with a deep passion for ethical hacking and cybersecurity. Driven by a curiosity for how systems work—and how to protect them—Aaron spends time exploring vulnerabilities, learning penetration testing techniques, and understanding defensive security strategies.
+      </p>
+      <div class="hero-buttons">
+        <a class="button" href="#contact">Contact Me</a>
+        <a class="button outline" href="#skills">My Skills</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="about" class="section-card reveal">
+      <h2>About Me</h2>
+      <p>
+        Eager to contribute to a safer digital world, Aaron aims to combine academic knowledge with hands-on skills in the ever-evolving field of cybersecurity. Currently studying cybersecurity and building a strong foundation in ethical hacking, programming, and security awareness.
+      </p>
+      <p><strong>School:</strong> TocH Institution of Science and Technology</p>
+    </section>
+
+    <section id="skills" class="section-card reveal">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        <li>Ethical Hacking</li>
+        <li>Programming</li>
+        <li>Cybersecurity Awareness</li>
+        <li>Vulnerability Assessment</li>
+      </ul>
+    </section>
+
+    <section id="projects" class="section-card reveal">
+      <h2>Projects</h2>
+      <p>Projects are coming soon. Stay tuned for updates on penetration testing labs, vulnerability research, and cybersecurity challenges.</p>
+    </section>
+
+    <section id="contact" class="section-card contact-card reveal">
+      <h2>Contact</h2>
+      <p>
+        Email: <span class="email-copy">
+          <a href="mailto:aaronabhilash2021@gmail.com">aaronabhilash2021@gmail.com</a>
+          <button id="copyEmail" type="button">Copy</button>
+        </span>
+      </p>
+      <p>GitHub: <a href="https://github.com/aaronabhilash2021-web" target="_blank" rel="noreferrer">github.com/aaronabhilash2021-web</a></p>
+      <p id="copyStatus" class="copy-status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <script>
+    const navLinks = document.querySelectorAll('.top-nav a');
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+
+            if (entry.target.id) {
+              navLinks.forEach((link) => {
+                link.classList.toggle(
+                  'active',
+                  link.getAttribute('href') === `#${entry.target.id}`
+                );
+              });
+            }
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
+
+    revealElements.forEach((element) => sectionObserver.observe(element));
+
+    const copyEmailButton = document.getElementById('copyEmail');
+    const copyStatus = document.getElementById('copyStatus');
+    const emailAddress = 'aaronabhilash2021@gmail.com';
+
+    if (copyEmailButton) {
+      copyEmailButton.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(emailAddress);
+          copyStatus.textContent = 'Email copied to clipboard!';
+          copyEmailButton.textContent = 'Copied';
+          setTimeout(() => {
+            copyEmailButton.textContent = 'Copy';
+            copyStatus.textContent = '';
+          }, 1800);
+        } catch (error) {
+          copyStatus.textContent = 'Copy failed. Please copy it manually.';
+        }
+      });
+    }
+  </script>
+
+  <footer class="footer">
+    <p>Designed with a minimal security-first style for Aaron Abhilash.</p>
+  </footer>
+</body>
+</html>
