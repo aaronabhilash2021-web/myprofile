@@ -16,21 +16,7 @@
     </nav>
 
     <div class="hero-content reveal">
-      <div class="profile-card reveal">
-        <div class="profile-card-image">
-          <img src="WhatsApp Image 2026-06-08 at 10.40.46 AM.jpeg" alt="Aaron Abhilash profile photo" class="profile-image" />
-        </div>
-        <div class="profile-card-body">
-          <span class="profile-card-badge">Profile Poll</span>
-          <h2>Aaron Abhilash</h2>
-          <p class="profile-card-copy">Does this image reflect Aaron’s cybersecurity brand?</p>
-          <div class="poll-buttons">
-            <button class="poll-button" data-vote="like">Like</button>
-            <button class="poll-button" data-vote="love">Love</button>
-          </div>
-          <p class="poll-results">Likes: <span id="likeCount">0</span> · Loved: <span id="loveCount">0</span></p>
-        </div>
-      </div>
+
       <p class="hero-subtitle">Hello, I’m</p>
       <h1>Aaron Abhilash</h1>
       <p class="hero-title">Ethical Hacker</p>
@@ -143,31 +129,6 @@
         }
       });
     }
-
-    const likeCount = document.getElementById('likeCount');
-    const loveCount = document.getElementById('loveCount');
-    const pollButtons = document.querySelectorAll('.poll-button');
-    let likes = 0;
-    let loves = 0;
-
-    pollButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const vote = button.dataset.vote;
-        if (vote === 'like') {
-          likes += 1;
-          likeCount.textContent = likes;
-          button.textContent = 'Liked!';
-        } else if (vote === 'love') {
-          loves += 1;
-          loveCount.textContent = loves;
-          button.textContent = 'Loved!';
-        }
-
-        setTimeout(() => {
-          button.textContent = vote === 'like' ? 'Like' : 'Love';
-        }, 1200);
-      });
-    });
   </script>
 
   <footer class="footer">
